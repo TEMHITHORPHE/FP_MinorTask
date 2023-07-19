@@ -1,11 +1,20 @@
-#hacky-alert {
+.hacky-alert {
   border: 2px red solid;
-  max-width: 30%;
+  /* max-width: 30%; */
+  margin-left: 10px;
+}
+
+
+#alert-section {
   position: fixed;
   z-index: 10;
   bottom: 0;
   left: 0;
-  margin-left: 10px;
+}
+
+#alert-section > .success {
+  border: 2px green solid;
+
 }
 
 .form-check-input.form-check-input:checked {
