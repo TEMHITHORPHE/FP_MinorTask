@@ -181,11 +181,11 @@
                     order: 2;" data-jarallax='{"speed": 0.5}'>
                 </div><!-- end col -->
 
-                <section id="form-page-2" class="vstack gap-4 align-self-center justify-content-center" style="margin-top:-1rem; display: none;">
+                <section id="page-2" class="vstack gap-4 align-self-center justify-content-center" style="margin-top:-1rem; display: none;">
                     <h2 style="text-align: center;">Enter Email OTP Code</h2>
                     <section id="code-card-anchor" class="w-auto mx-auto gap-2 hstack">
                     </section>
-                    <form name="form-page-2" class="col-6 mx-auto codebox-input-group justify-content-center" method="post">
+                    <form id="form-page-2" name="form-page-2" class="col-6 mx-auto codebox-input-group justify-content-center" method="post">
                         <input type="text" class="codebox-input" id="codebox" name="email_codebox" required placeholder="                 Enter OTP " autocomplete="off">
                         <button class="codebox-button--submit" value="Verify" type="submit">Verify</button>
                     </form>
@@ -197,9 +197,7 @@
     <!-- Hero End -->
 
 
-
     <script>
-
 
         const pageOneForm = document.getElementById("signup");
         pageOneForm.addEventListener("submit", (e) => {
@@ -217,39 +215,10 @@
                 OnEmailVerify(e);
             }
             else {
-                signUpForm.addEventListener("submit", (e) => { OnEmailVerify(e) });
+                pageTwoForm.addEventListener("submit", (e) => { OnEmailVerify(e) });
             }
         });
 
-
-
-
-
-
-
-    //     async function displayCodeCard() {
-    //         const store_value = window.localStorage.voting_entity;
-    //         if (!store_value) return;
-
-    //         const entity = JSON.parse(store_value);
-    //         if (!entity || !entity.access_token) return;
-
-    //         const code_card_anchor = document.getElementById('code-card-anchor');
-    //         console.log("LOCAL-STORE: ", entity);
-    //         if (!code_card_anchor) return;
-
-    //         let cardHTML = ""
-    //         for (let index = 0; index < entity.access_token.length; index++) {
-    //             const char = entity.access_token[index];
-    //             cardHTML += `
-	// 	<div class="code-card">
-	// 	<h2>${char}</h2>
-	//   </div>
-	//   `
-    //         }
-
-    //         code_card_anchor.innerHTML = cardHTML;
-    //     }
     </script>
 
     <!-- javascript -->

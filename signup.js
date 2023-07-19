@@ -15,24 +15,31 @@ let FORM_INPUT = {}
 // }, 1000);
 
 
-async function OnEmailVerify() {
+async function OnEmailVerify(e) {
 	e.preventDefault();
 
 	const form = document.forms[1];
 
-	const emailOTP = form.email_codebox;
-
+	const emailOTP = form.email_codebox.value;
+	console.log(emailOTP);
 	if (emailOTP.length != 6 || Number(emailOTP) == NaN) {
 		ShowErrorAlert("email verification code invalid");
 		return;
 	}
 
+	console.log({
+		...FORM_INPUT,
+		verify: Number(emailOTP)
+	});
+
 	const res = await fetch("https://spotplus.com/Api/Mobile/emailregister", {
-		method: "GET",
-		body: {
+		method: "POST",
+		mode: "cors",
+		body: JSON.stringify({
 			...FORM_INPUT,
-			verify: emailOTP
-		}
+			verify: Number(emailOTP)
+		}),
+
 	});
 
 
@@ -85,12 +92,16 @@ async function OnRegister__ClickHandler(e, r) {
 		ShowErrorAlert("please accept terms & conditions");
 		return
 	}
+	// if (Number(invite_code) === NaN) {
+	// 	ShowErrorAlert("Invite Code Invalid");
+	// 	return;
+	// }
 
 	FORM_INPUT = {
 		username: username,
 		email, email,
 		password: password,
-		invit: invite_code,
+		invit: Number(invite_code),
 		"t&c": t_and_c
 	};
 
@@ -128,7 +139,7 @@ async function OnRegister__ClickHandler(e, r) {
 
 function updateFormPage(page) {
 	const formOne = document.getElementById("form-page-1");
-	const formTwo = document.getElementById("form-page-2");
+	const formTwo = document.getElementById("page-2");
 
 	if (page === 1) {
 		formOne.style.display = 'none';
@@ -196,3 +207,31 @@ function ShowSuccessAlert(message) {
 		div.remove();
 	}, 5000);
 }
+
+
+
+
+
+    //     async function displayCodeCard() {
+    //         const store_value = window.localStorage.voting_entity;
+    //         if (!store_value) return;
+
+    //         const entity = JSON.parse(store_value);
+    //         if (!entity || !entity.access_token) return;
+
+    //         const code_card_anchor = document.getElementById('code-card-anchor');
+    //         console.log("LOCAL-STORE: ", entity);
+    //         if (!code_card_anchor) return;
+
+    //         let cardHTML = ""
+    //         for (let index = 0; index < entity.access_token.length; index++) {
+    //             const char = entity.access_token[index];
+    //             cardHTML += `
+	// 	<div class="code-card">
+	// 	<h2>${char}</h2>
+	//   </div>
+	//   `
+    //         }
+
+    //         code_card_anchor.innerHTML = cardHTML;
+    //     }

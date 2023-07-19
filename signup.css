@@ -80,12 +80,12 @@
 	Second Form Page
 */
 
-#form-page-2 {
+#page-2 {
   width: 50%;
   height: 100vh;
 }
 
-#form-page-2 > form > codebox-button--submit {
+#page-2 > form > codebox-button--submit {
   font-family: "Roboto" sans-serif;
   font-size: 18px;
   padding-left: 8px;
