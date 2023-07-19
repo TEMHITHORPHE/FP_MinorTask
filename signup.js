@@ -45,20 +45,25 @@ async function OnEmailVerify(e) {
 
 	if (res.status === 200) {
 
-		const data = await res.json();
+		let data = await res.json();
+		data = Number(data.status)
 
-		if (data.status === 1) {
+		if (data != NaN && data.status === 1) {
 			// TODO: POP AN ALERT TO USER
-			// console.log("QWERTYUIOPAS ============== QWERTYUIOPASDFGHJKL");
 			ShowSuccessAlert("Account Created Successfully!");
 			window.location = window.location.origin; // Redirect back to homepage.
 		}
 
-		else if (data.status === 0) {
-			// console.log("[Error Occured]: ", data.error);
+		else if (data != NaN && data.status === 0) {
 			const errorMSG = data.error;
 			// TODO: POP AN ALERT TO USER
 			ShowErrorAlert(errorMSG);
+		}
+		else {
+			// Okay ... Now that's definitely Weird
+			// Most likely a change in API response
+			ShowErrorAlert("Unexpected error occurred, try again ");
+
 		}
 
 	}
@@ -137,6 +142,8 @@ async function OnRegister__ClickHandler(e, r) {
 
 }
 
+
+// Manages the UI transition from one form to the next ... basically react-router's "Link+Outlet" tag.
 function updateFormPage(page) {
 	const formOne = document.getElementById("form-page-1");
 	const formTwo = document.getElementById("page-2");
