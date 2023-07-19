@@ -2,10 +2,12 @@
   border: 2px red solid;
   /* max-width: 30%; */
   margin-left: 10px;
+  
 }
 
 
 #alert-section {
+  flex-direction: column;
   position: fixed;
   z-index: 10;
   bottom: 0;
