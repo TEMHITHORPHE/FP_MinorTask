@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotplus - Create Account</title>
+    <meta name="description" content="spotplus account creation page" />
+    <meta name="keywords" content="forex, creative, modern, trading bot, multipurpose, clean" />
+    <meta name="author" content="fintechprogrammers" />
+    <meta name="website" content="https://spotplus.com" />
+    <meta name="email" content="support@spotplus.com" />
+    <meta name="version" content="1.1.0" />
+
+    <!-- favicon -->
+    <link href="images/spotplus-favicon.png" rel="shortcut icon">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <!--Material Icon -->
+    <!-- <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet"> -->
+    <!-- Custom  Css -->
+    <link href="vendor/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="signup.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <script src="vendor/js/iconify.min.js"></script>
+    <script rel="preload" src="signup.js"></script>
+
+</head>
+
+<body>
+    <div id="hacky-alert" class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg style="width: 24px; height: 24px" xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+        <div id="alert-msg">
+            An example alert with an icon
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <!-- Need to preserve first form state -->
+        <a href="#/" class="back-button btn btn-icon" style="background-color: #bb03e1;" onclick="updateFormPage(2)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="white" d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11h12Z" />
+            </svg>
+        </a>
+    </div>
+    <!-- Hero Start -->
+    <section class="cover-user bg-white">
+        <div class="container-fluid px-0">
+            <div class="row g-0 position-relative">
+                <div id="form-page-1" class="" style="width: 50%;">
+                    <div class="cover-user-img d-flex align-items-center">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex flex-column auth-hero">
+                                    <div class="mt-md-5 text-center">
+                                        <a href=""><img src="images/spotplus-logo.png" alt=""></a>
+                                    </div>
+                                    <div class="title-heading my-lg-auto">
+                                        <div class="card border-0" style="z-index: 1">
+                                            <div class="card-body p-0">
+                                                <h4 class="card-title">Signup</h4>
+                                                <form id="signup" name="signup" class="login-form mt-4" action="">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">First name <span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" placeholder="First Name" name="firstname" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Last name <span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" placeholder="Last Name" name="lastname" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Your Email <span class="text-danger">*</span></label>
+                                                                <input type="email" class="form-control" placeholder="Email" name="email" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Password <span class="text-danger">*</span></label>
+                                                                <input type="password" class="form-control" placeholder="Password" name="password" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                                                <input type="password" class="form-control" placeholder="confirm_password" name="confirm_password" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Invite Code <span class="text-danger">*</span></label>
+                                                                <input type="number" class="form-control" placeholder="your invite code" name="invite_code" required="">
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="t_and_c">
+                                                                    <label class="form-check-label">I Accept <a href="#" class="text" style="color:#bb03e1;">Terms And Condition</a></label>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="col-md-12">
+                                                            <div class="d-grid">
+                                                                <button type="submit" class="btn register" style="background-color: #7668fe; color: white;" name="register">
+                                                                    <span>Register</span>
+                                                                    <svg style="display: none;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30"
+                                                                        style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                                                        <rect x="0" y="0" width="4" height="10" fill="#333">
+                                                                            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0" dur="0.6s" repeatCount="indefinite"></animateTransform>
+                                                                        </rect>
+                                                                        <rect x="10" y="0" width="4" height="10" fill="#333">
+                                                                            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0.2s" dur="0.6s" repeatCount="indefinite"></animateTransform>
+                                                                        </rect>
+                                                                        <rect x="20" y="0" width="4" height="10" fill="#333">
+                                                                            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0.4s" dur="0.6s" repeatCount="indefinite"></animateTransform>
+                                                                        </rect>
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </div><!--end col-->
+
+                                                        <div class="mx-auto">
+                                                            <p class="mb-0 mt-3"><small class="text-dark me-2">Already have an account ?</small> <a href="auth-login.html" class="fw-bold" style="color: #7668fe;">Sign in</a></p>
+                                                        </div>
+                                                    </div><!--end row-->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-md-5 text-center">
+                                        <!-- <ul class="socials mb-3">
+                                            <li><a href="https://facebook.com/spotpluscom"><em class="fab fa-facebook-f"></em></a></li>
+                                            <li><a href="https://twitter.com/spotpluscom"><em class=" fab fa-twitter"></em></a></li>
+                                            <li><a href="https://github.com/spotpluscom"><em class="fab fa-github-alt"></em></a></li>
+                                            <li><a href="https://youtube.com/@spotpluscom"><em class="fab fa-youtube"></em></a></li>
+                                            <li><a href="https://t.me/spotpluscom"><em class="fab fa-telegram-plane"></em></a></li>
+                                        </ul> -->
+                                        <p class="mb-0 text-muted">©
+                                            <script>document.write(new Date().getFullYear())</script> Spotplus. Design with <i class="mdi mdi-heart" style="color: #bb03e1;"></i> by <a href="#" target="_blank" class="text-reset">@fintechprogrammers</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div> <!-- end about detail -->
+                </div> <!-- end col -->
+
+                <div class="" style="background-image: url('images/svg/signup-bg.svg');
+                    background-size: cover;
+                    display: none;
+                    background-position: 50% 50%;
+                    width: 50%;
+                    background-repeat: no-repeat;
+                    display: flex;
+                    align-items: center;
+                    order: 2;" data-jarallax='{"speed": 0.5}'>
+                </div><!-- end col -->
+
+                <section id="form-page-2" class="vstack gap-4 align-self-center justify-content-center" style="margin-top:-1rem; display: none;">
+                    <h2 style="text-align: center;">Enter Email OTP Code</h2>
+                    <section id="code-card-anchor" class="w-auto mx-auto gap-2 hstack">
+                    </section>
+                    <form name="form-page-2" class="col-6 mx-auto codebox-input-group justify-content-center" method="post">
+                        <input type="text" class="codebox-input" id="codebox" name="email_codebox" required placeholder="                 Enter OTP " autocomplete="off">
+                        <button class="codebox-button--submit" value="Verify" type="submit">Verify</button>
+                    </form>
+                </section>
+
+            </div><!--end row-->
+        </div><!--end container fluid-->
+    </section><!--end section-->
+    <!-- Hero End -->
+
+    <!-- <div id="notif-alert" class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:">
+            <use xlink:href="#exclamation-triangle-fill" />
+        </svg>
+        <div>
+            An example warning alert with an icon
+        </div>
+    </div> -->
+    <!-- <div class="alert alert-dark" role="alert">
+        A simple dark alert—check it out!
+    </div> -->
+
+
+    <script>
+
+        // onsubmit="OnRegister__ClickHandler()"
+
+        const pageOneForm = document.getElementById("signup");
+        pageOneForm.addEventListener("submit", (e) => {
+            if (OnRegister__ClickHandler) {
+                OnRegister__ClickHandler(e);
+            }
+            else {
+                signUpForm.addEventListener("submit", (e) => { OnRegister__ClickHandler(e) });
+            }
+        });
+
+        const pageTwoForm = document.getElementById("form-page-2");
+        pageTwoForm.addEventListener("submit", (e) => {
+            if (OnEmailVerify) {
+                OnEmailVerify(e);
+            }
+            else {
+                signUpForm.addEventListener("submit", (e) => { OnEmailVerify(e) });
+            }
+        });
+
+
+        function ShowAlert(message) {
+            const alert = document.getElementById("alert-msg");
+            alert.innerText = message;
+            alert.style.display = 'flex';
+
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+
+    //     async function displayCodeCard() {
+    //         const store_value = window.localStorage.voting_entity;
+    //         if (!store_value) return;
+
+    //         const entity = JSON.parse(store_value);
+    //         if (!entity || !entity.access_token) return;
+
+    //         const code_card_anchor = document.getElementById('code-card-anchor');
+    //         console.log("LOCAL-STORE: ", entity);
+    //         if (!code_card_anchor) return;
+
+    //         let cardHTML = ""
+    //         for (let index = 0; index < entity.access_token.length; index++) {
+    //             const char = entity.access_token[index];
+    //             cardHTML += `
+	// 	<div class="code-card">
+	// 	<h2>${char}</h2>
+	//   </div>
+	//   `
+    //         }
+
+    //         code_card_anchor.innerHTML = cardHTML;
+    //     }
+    </script>
+
+    <!-- javascript -->
+    <script src="js/bootstrap.bundle.min.js" type="text/js"></script>
+    <!-- Icons -->
+    <script src="js/feather.min.js"></script>
+    <!-- Custom -->
+    <script src="js/plugins.init.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
