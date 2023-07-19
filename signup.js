@@ -37,59 +37,82 @@ async function OnEmailVerify(e) {
 		return;
 	}
 
-	console.log({
-		...FORM_INPUT,
-		verify: Number(emailOTP)
-	});
+	// console.log({
+	// 	...FORM_INPUT,
+	// 	verify: Number(emailOTP)
+	// });
 
 	const formData = (new FormData());
-	formData.set('username',NAME)
-    formData.set('email',EMAIL)
-    formData.set('password',PASSWORD)
-    formData.set('verify',EMAIL_OTP_CODE)
-    formData.set('invit',INVITE_CODE);
+	formData.append('username', FORM_INPUT.username)
+	formData.append('email', FORM_INPUT.email)
+	formData.append('password', FORM_INPUT.password)
+	formData.append('invit', FORM_INPUT.invite_code);
+	formData.append('verify', Number(emailOTP))
+
+	console.log("[FORM_DATA-USERNAME]: ", formData.get('username'), new URLSearchParams({
+		username: FORM_INPUT.username,
+		email: FORM_INPUT.email,
+		password: FORM_INPUT.password,
+		invit: FORM_INPUT.invite_code,
+		verify: Number(emailOTP),
+	}).toString());
+
 
 	const res = await fetch(CREATE_ACCOUNT_ENDPOINT, {
 		method: "POST",
 		mode: "cors",
-		headers: "application/x-www-form-urlencoded",
-		body: formData
+		// headers: {
+		// 	"Content-Type": "application/x-www-form-urlencoded"
+		// },
+		body: new URLSearchParams({
+			username: FORM_INPUT.username,
+			email: FORM_INPUT.email,
+			password: FORM_INPUT.password,
+			invit: FORM_INPUT.invite_code,
+			verify: Number(emailOTP),
+		}),
 	});
 
 
 	if (res.status === 200) {
 
-		// let data = await res.text; // For Testing!!
-		let data = await res.text();
-		// data = Number(data.status)
+		// {"status":0,"data":"USERNAME ALREADY EXISTS!"}
+		let data = await res.text();	// Don't be deceived, response is not JSON
 
-		console.log(data);
+		// This whole dance is neccesary due to the way backend returns data.
+		// actually, doesn't matter, won't work.
+		// data = JSON.parse(JSON.stringify(data));
+		// console.log(data, status_code);
 
-		if (data != NaN && data.status === 1) {
-			// TODO: POP AN ALERT TO USER
+		// if (status_code != NaN && status_code === 1) {
+		if (data.startsWith('{"status":1')) {
+
 			ShowSuccessAlert("Account Created Successfully!");
-			window.location = window.location.origin; // Redirect back to homepage.
+
+			// Redirect back to homepage in (5) seconds.
+			setTimeout(() => {
+				window.location = window.location.origin;
+			}, 5000);
 		}
 
-		else if (data != NaN && data.status === 0) {
-			const errorMSG = data.error;
-			// TODO: POP AN ALERT TO USER
-			ShowErrorAlert(errorMSG);
+		// else if (status_code != NaN && status_code === 0) {
+		else if (data.startsWith('{"status":0')) {
+			// const errorMSG = data.error;
+			ShowErrorAlert(data.trimStart('{"status":0,"data":').trimEnd('"}'));
 		}
+
 		else {
 			// Okay ... Now that's definitely Weird
 			// Most likely a change in API response
 			ShowErrorAlert("Unexpected error occurred, try again ");
-
 		}
-
 	}
 
 }
 
 
 
-async function OnRegister__ClickHandler(e, r) {
+async function OnRegister__ClickHandler(e) {
 	e.preventDefault();
 
 	const form = document.forms[0];
@@ -123,7 +146,7 @@ async function OnRegister__ClickHandler(e, r) {
 		username: username,
 		email, email,
 		password: password,
-		invit: Number(invite_code),
+		invite_code: Number(invite_code),
 		"t&c": t_and_c
 	};
 
@@ -156,7 +179,6 @@ async function OnRegister__ClickHandler(e, r) {
 
 	}
 
-
 }
 
 
@@ -171,12 +193,9 @@ function updateFormPage(page) {
 	}
 
 	else if (page === 2) {
-
 		formOne.style.display = 'flex';
 		formTwo.style.display = 'none';
-
 	}
-
 }
 
 
